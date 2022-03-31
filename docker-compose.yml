@@ -1,0 +1,21 @@
+version: '3'
+services:
+ php-fpm:
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      USERNAME: Kyse7535
+      UID: 501
+      EMAIL: ktevot@gmail.com
+      NAME: "Kyse7535"
+  container_name: angular-project
+  volumes:
+  - ./dev:/var/www/html
+  ports:
+  - "6000:8000"
+  - "6010:8010"
+  - "6020:4200"
+  environment:
+    PHP_IDE_CONFIG: serverName=framework_web_angular
+    PS1: "[ $$(whoami) | $$(pwd) ] "
